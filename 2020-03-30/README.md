@@ -7,7 +7,7 @@
   - [x] Démonstration malloc
   - [x] Tableaux dynamiques (interactif)
 - [x] Compilation séparée
-- [.] Préprocesseur
+- [x] Préprocesseur
 
 # Note de cours
 
