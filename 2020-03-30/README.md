@@ -8,7 +8,6 @@
   - [x] Tableaux dynamiques (interactif)
 - [x] Compilation séparée
 - [.] Préprocesseur
-- [ ] Pointeurs avancés
 
 # Note de cours
 
