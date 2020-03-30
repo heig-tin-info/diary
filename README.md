@@ -3,11 +3,11 @@
 - [x] Quiz HEIGINFO2A (14h57 --> 15h10)
   - [x] Correction du quiz
 - [x] LiveShare (installation)
-- [ ] Allocation dynamique
+- [x] Allocation dynamique
   - [x] Démonstration malloc
-  - [ ] Tableaux dynamiques (interactif)
-- [ ] Compilation séparée
-- [ ] Préprocesseur
+  - [x] Tableaux dynamiques (interactif)
+- [x] Compilation séparée
+- [.] Préprocesseur
 - [ ] Pointeurs avancés
 
 # Note de cours
@@ -46,3 +46,8 @@ printf("4, 8");
 7. Loguer vous avec GitHub
 8. Suivez les instructions
 
+## Compilation d'un fichier
+
+1. Preprocessing (toutes les directives avec # et les commentaires)
+2. Compilation (conversion C en langage machine)
+3. Assemblage (link, conversion object en exécutable)

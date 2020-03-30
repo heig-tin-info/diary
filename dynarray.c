@@ -1,52 +1,80 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct Vector {
+    int *tab;
+    int elements;
+    int capacity;
+} Vector;
 
-void pop(int *tab, int *elements, int value) // Valdebenito
+int pop(Vector *v)
 {
-    tab[--*elements] = value;
+    if (v->elements == 0) return 0;
+    return v->tab[--v->elements];
 }
 
-void push(int *tab, int *elements, int value)
+void push(Vector *v, int value)
 {
-    tab[*elements++] = value;
+    v->tab[v->elements++] = value;
+    if(v->elements == v->capacity)
+    {
+        v->tab = realloc(v->tab, v->capacity *= 2);
+        if(v->tab == NULL) {
+            exit(EXIT_FAILURE);
+        }
+    }
 }
 
-int shift(int *tab, int *elements) // Yersin
+int shift(Vector *v)
 {
-    if (*elements == 0) return 0;
-    int value = tab[0];
-    for(int i = 0; i < (*elements-1); i++){
-        tab[i] = tab[i+1];
+    if (v->elements == 0) return 0;
+    int value = v->tab[0];
+    for(int i = 0; i < ((v->elements)-1); i++){
+        v->tab[i] = v->tab[i+1];
     }
 
     return value;
 }
 
-void unshift(int *tab, int *elements, int value) // Bélaire
+void unshift(Vector *v, int value)
 {
-      for(int i = *elements - 1; i < 0; i--){
-        tab[i] = tab[i-1];
+    for(int i = v->elements - 1; i < 0; i--){
+        v->tab[i] = v->tab[i-1];
     }
-    tab[0] = value;
+    v->tab[0] = value;
+}
+
+Vector init()
+{
+    int initial_capacity = 1;
+    Vector vector = {
+        .capacity = initial_capacity,
+        .tab = malloc(sizeof(int) * initial_capacity)
+    };
+    return vector;
+}
+
+void free_(Vector *vector)
+{
+    if (vector->tab != NULL)
+        free(vector->tab);
 }
 
 int main(void) {
-    int v[10];
-    int elements = 0;
-    int value_shift = 0;
-    int value_unshift = 0;
+    Vector vector = init();
 
     // Push 42
-    push(v, &elements, 42);
+    for (int i = 0; i < 11; i++)
+        push(&vector, 42);
 
     // Pop enlever un élément du tableau par la fin
-    int value = v[--elements];
+    int value = pop(&vector);
 
     // Shift
-    value_shift = shift(v, &elements);
+    int value_shift = shift(&vector);
 
     // Unshift (ajoute un élément depuis le début du tableau)
-    unshift(v, &elements, value_unshift);
+    int value_unshift;
+    unshift(&vector, value_unshift);
 
 }
