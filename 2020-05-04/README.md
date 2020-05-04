@@ -96,6 +96,8 @@ Pire temps      O(n^2) time
 qsort (stdlib.h) implémenté de façon itérative
 que le pivot est choisi de manière intelligente
 
+On peut voir dans le code source de [glibc](https://github.com/bminor/glibc) l'implémentation itérative de `qsort`. On y voit que le choix du pivot est plus subtile que simplement choisir le premier, le dernier ou l'élément milieu. 
+
 # Heap Sort
 
 - Un tableau linéraire est considéré comme un arbre binaire
