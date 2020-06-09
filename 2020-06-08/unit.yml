@@ -19,7 +19,7 @@
         academicHours: 120
         inClassAcademicHours: 80
     planning:
-        s1:
+        s2:
             class: # 48
                 - hours: 4
                   chapters:
